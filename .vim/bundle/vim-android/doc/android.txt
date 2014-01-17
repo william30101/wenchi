@@ -1,0 +1,113 @@
+*android.txt*  Assisting android development with VIM.
+
+Author:  Matt Garriott <https://github.com/mgarriott>
+License: BSD 2-Clause (see LICENSE file).
+
+INTRODUCTION                                     *android*
+
+This plugin provides several convenience commands to make development for
+android easier with VIM.
+
+BUILD-COMMANDS                                   *android-build-commands*
+
+The following is a list of Ex commands specific to build operations. These
+commands closely resemble their ant equivalents.
+
+                                                 *:Adebug*
+Adebug                    Build the debug version of the current project.
+                          Equivalent to calling `ant debug`
+
+                                                 *:Arelease*
+Arelease                  Build the release version of the current project.
+                          Equivalent to calling `ant release`
+
+                                                 *:Ainstalld*
+Ainstalld                 Install the debug APK (must already be built).
+                          Equivalent to calling `ant installd`
+
+                                                 *:Ainstallr*
+Ainstallr                 Install the release APK (must already be built).
+                          Equivalent to calling `ant installr`
+
+                                                 *:Adebugi*
+Adebugi                   Build and install the debug APK.
+                          Equivalent to calling `ant debug install`
+
+                                                 *:Areleasei*
+Areleasei                 Build and install the release APK.
+                          Equivalent to calling `ant release install`
+
+                                                 *:Aclean*
+Aclean [++args]           Clean the project.
+                          Equivalent to calling `ant clean`. [++args] can be
+                          any additional ant commands/arguments you want to
+                          specify.
+                            :Aclean -f test_project/build.xml
+
+                                                 *:Atest*
+Atest                     Run the unit tests for the current project.
+                          The test project directory must be a direct
+                          subdirectory inside the project to test, and
+                          must contain a build.xml file.
+                          Equivalent to calling `ant debug install test`
+
+                                                 *:Auninstall*
+Auninstall                Uninstall the application from the default android
+                          device.
+                          Equivalent to calling `ant uninstall`
+
+                                                 *:Aant*
+Aant {build_targets}      Call ant {build_targets} for the main project.
+                          For example to clean the project and then build the
+                          release version you could run
+                            :Aant clean debug
+
+ANDROID-COMMANDS                                 *android-commands*
+
+The following is a list of Ex commands that wrap the functionality of the
+"android" executable found in the android platform-tools.
+
+                                                 *:Alisttargets*
+Alisttargets              List all available android platform targets.
+                          Equivalent to calling `android list targets`
+
+NAVIGATION-COMMANDS                              *android-navigation-commands*
+
+                                                 *:Agoto*
+Agoto                     Tag-like navigation, but this command also allows
+                          you to easily navigate to resources from within the
+                          source code. Recommended mapping: <C-]>.
+
+                                                 *:Afind*
+Afind {file}              Find and edit {file} in the main project.
+
+                                                 *:AVfind*
+AVfind {file}             Find and vertically split {file} in the main project.
+
+                                                 *:ASfind*
+ASfind {file}             Find and horizontally split {file} in the main project.
+
+                                                 *:Alibfind*
+Alibfind {file}           Find and edit {file} in any referenced library
+                          projects.
+
+                                                 *:AVlibfind*
+AVlibfind {file}          Find and vertically split {file} in any referenced
+                          library projects.
+
+                                                 *:ASlibfind*
+ASlibfind {file}          Find and horizontally split {file} in any referenced
+                          library projects.
+
+                                                 *:Atestfind*
+Atestfind {file}          Find and edit {file} in a test project subdirectory.
+
+                                                 *:AVtestfind*
+AVtestfind {file}         Find and vertically split {file} in a test project
+                          subdirectory.
+
+                                                 *:AStestfind*
+AStestfind {file}         Find and horizontally split {file} in a test project
+                          subdirectory.
+
+ vim:tw=78:et:ft=help:norl:

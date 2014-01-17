@@ -1,0 +1,109 @@
+snippet co
+	/* ${1} */
+snippet sl
+	/*===========================================================================*/
+snippet ts
+	`timescale ${1:1ns/10ps}
+snippet inc
+	`include "${1:filename}"
+snippet def
+	`define
+snippet module
+	module `Filename('$1', 'name')` (
+		${1:/* <ports> */}
+	);
+
+	endmodule
+snippet modulen
+	module `Filename('$1', 'name')`;
+		${1:/* <statement> */}
+	endmodule
+snippet seq
+	always@(posedge clk or negedge rst_n) begin
+		if(!rst_n) begin
+			${1:/* <statement> */}
+		end else begin
+			${2:/* <statement> */}
+		end
+	end
+snippet com
+	always@(*) begin
+		${1:/* <statement> */}
+	end
+snippet al
+	always
+snippet always
+	always @ (${1:/* <port> */}) begin
+		${2:/* <statement> */}
+	end
+snippet init
+	initial
+snippet initial
+	initial begin
+		${1:/* <statement> */}
+	end
+snippet begin
+	begin
+		${1:/* <statement> */}
+	end
+snippet if
+	if (${1:/* <condition> */}) begin
+		${2:/* <statement> */}
+	end
+snippet else 
+	else begin
+		${1:/* <statement> */}
+	end
+snippet case
+	case (${1:/* <sel> */})
+
+		default: begin
+			${2:/* <statement> */}
+		end
+	endcase
+snippet for
+	for (${2:i} = 0; $2 < ${1:count} ; $2=$2+1) begin
+		${3:/* code */}
+	end
+snippet while
+	while (${1:/* condition */}) begin
+		${2:/* code */}
+	end
+snippet repeat
+	repeat (${1:/* number */}) begin
+		${2:/* code */}
+	end
+snippet pos
+	posedge
+snippet neg
+	negedge
+snippet .
+	[${1:bit}:${2:bit}]${3}
+snippet fsdump
+	$fsdbDumpfile("`Filename('$1', 'name')`.fsdb");
+	$fsdbDumpvars;
+snippet dump
+	$dumpfile("`Filename('$1', 'name')`.vcd");
+	$dumpvars;
+snippet fsm
+	/*===========================================================================*/
+	// Finite State Machine
+	always @ (posedge clk or posedge rst) begin
+	    if (rst) begin
+	        state <= ${1:INIT};
+	    end else begin
+	        state <= next_state;
+	    end
+	end
+	/*===========================================================================*/
+	always @(*) begin
+	    case (state)
+	        $1: begin
+	            next_state = ${2:IDLE};
+	        end
+	        default: begin
+	            next_state = $2;
+	        end
+	    endcase
+	end
+	/*===========================================================================*/
