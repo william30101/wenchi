@@ -1,0 +1,35 @@
+[user]
+	name = william
+	email = william30101@gmail.com
+[alias]
+    ll   = log --pretty=oneline --abbrev-commit
+    lg   = log --pretty=oneline --abbrev-commit --graph --decorate --date=relative
+    lgt  = log --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    lgtt = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+    la   = log --graph --pretty=format:'%Cred%h%Creset -%C(bold yellow)%d%Creset %s %Cgreen(%cr) %C(bold cyan)%an%Creset %C(blue)<%ce>%Creset' --abbrev-commit --all
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+	interactive = auto
+	ui = true
+    pager = true
+[sendemail]
+	smtpencryption = tls
+	smtpserver = smtp.gmail.com
+	smtpuser = william30101
+	smptserverport = 587
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[mergetool]
+	trustExitCode = false
+[diff]
+	tool = vimdiff
+[gui]
+    encoding = utf-8
+[i18n]
+    commitencoding = utf-8
+    logoutputencoding = utf-8
